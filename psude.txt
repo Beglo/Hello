@@ -1,11 +1,12 @@
 define xSpeed, ySpeed, wallLocation, spiderLocation
 
+
 Start{
-	set spiderLocation center of wallLocation				//initialize spider center of the wall
+	set spiderLocation center of wallLocation					//initialize spider center of the wall
 }
 
-Update {
-	
+
+Update {	
 	if touches a window/door/pipe then
 		call CheckDangerAnimation
 		set xspeed and yspeed to negative					//to make the movement to another location
@@ -13,16 +14,14 @@ Update {
 	if not
 		call MoveClass
 	end
-	start timer 											//to keep time of how much sec past
+	start timer 									//to keep time of how much sec past
 	call IdleClass after 3sec ~ 8sec passed
 	randomly call CheckDangerAnimation
-	
-
-
 }
 
+
 MoveClass{
-	set xSpeed, ySpeed										//setting movement speed to a fixed speed
+	set xSpeed, ySpeed								//setting movement speed to a fixed speed
 	call movingAnimation	
 }
 
@@ -30,11 +29,4 @@ MoveClass{
 IdleClass{
 	call movingAnimation
 	stay in idle animation for a random time 3 sec to 15sec	//waiting for a random time
-}
-
-CheckDangerAnimation{
-
-
-
-
 }
